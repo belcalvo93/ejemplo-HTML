@@ -22,4 +22,4 @@ COPY docker-entrypoint.sh /docker-entrypoint.d/40-generar-config.sh
 # ejecutable, config.js nunca se genera, y el front queda apuntando a la nada.
 RUN chmod +x /docker-entrypoint.d/40-generar-config.sh
 
-EXPOSE 80
+EXPOSE 81
