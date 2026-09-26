@@ -12,6 +12,11 @@ FROM nginx:alpine
 
 COPY index.html /usr/share/nginx/html/index.html
 
+# nginx por defecto escucha en el puerto 80. Como este servicio tiene que
+# convivir con otros que ya usan el 80, le pasamos una configuracion propia
+# que lo hace escuchar en el 81 en su lugar.
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
 # El script que genera config.js al arrancar. La imagen oficial de nginx
 # ejecuta sola todo lo que encuentre en /docker-entrypoint.d/, en orden
 # alfabetico, antes de levantar el servidor. El "40-" es para ordenar.
